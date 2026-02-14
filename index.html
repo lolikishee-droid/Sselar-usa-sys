@@ -1,25 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Selar Transaction System</title>
-    <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
-    "lucide-react": "https://esm.sh/lucide-react@0.344.0",
-    "react/": "https://esm.sh/react@^18.2.0/",
-    "react-dom/": "https://esm.sh/react-dom@^18.2.0/"
-  }
-}
-</script>
+    
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -39,11 +34,45 @@
         animation: blink 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
     </style>
-  <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
+<body>
     <div id="root"></div>
-    <!-- Load the main entry point -->
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      // Simple Component to represent your system
+      function SelarApp() {
+        return (
+          <div className="min-h-screen flex flex-col items-center justify-center p-4">
+            <div className="max-w-md w-full bg-white rounded-xl shadow-2xl p-8 border border-gray-100">
+              <div className="flex items-center justify-center mb-6">
+                <div className="bg-selar-teal p-3 rounded-full">
+                   <div className="text-white font-bold text-2xl">S</div>
+                </div>
+              </div>
+              <h1 className="text-2xl font-bold text-center text-gray-800 mb-2">Selar Transaction System</h1>
+              <p className="text-center text-gray-500 mb-8">System is active and ready.</p>
+              
+              <div className="space-y-4">
+                <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-selar-teal">
+                  <p className="text-sm font-semibold text-gray-600">Status</p>
+                  <p className="text-selar-teal font-medium animate-blink">● Live & Connected</p>
+                </div>
+                
+                <button className="w-full bg-selar-brown text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                  View Transactions
+                </button>
+              </div>
+            </div>
+            <p className="mt-8 text-gray-400 text-sm">© 2024 Selar Transaction Portal</p>
+          </div>
+        );
+      }
+
+      // Render the app
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<SelarApp />);
+    </script>
+</body>
 </html>
